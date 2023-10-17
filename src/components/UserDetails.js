@@ -1,19 +1,23 @@
-// components/UserDetails.js
 import React from 'react';
-import { Modal,  Input, Button } from 'antd';
-import { Formik, Field, Form, } from 'formik';
+import { Modal, Input, Button } from 'antd';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+import cartStore from '@/stores/CartStore';
+
 const validationSchema = Yup.object().shape({
-  username: Yup.string().required('Username is required'),
+  name: Yup.string().required('Name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
+  date: Yup.string().email('Invalid email').required('Date is required'),
+  age: Yup.number().required('Age is required'),
+  gender: Yup.string().required('Gender is required'),
+  nationality: Yup.string().required('Nationality is required'),
+  passport: Yup.string().required('Passport is required'),
 });
 
-const UserDetails = ({ visible, onCancel }) => {
+const UserDetails = ({ visible, onCancel, item }) => {
   const handleSubmit = (values, { resetForm }) => {
-
-    console.log('Submitted data:', values);
+    cartStore.addItemToCart(item, values)
     resetForm();
     onCancel();
   };
@@ -26,43 +30,67 @@ const UserDetails = ({ visible, onCancel }) => {
       footer={null}
     >
       <Formik
-        initialValues={{ username: '', email: '', password: '' }}
+        initialValues={{
+          username: '',
+          email: '',
+          age: '',
+          gender: '',
+          nationality: '',
+          passport: '',
+        }}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={(values, actions) => handleSubmit(values, actions)}
       >
         <Form>
           <div>
-            <label htmlFor="username">Username</label>
-            <Field name="username" as={Input} />
+            <label htmlFor="name">name</label>
+            <Field name="name" as={Input} />
+            <ErrorMessage name="name" component="div" className="error text-danger"  />
           </div>
           <div>
             <label htmlFor="email">Email</label>
             <Field name="email" type="email" as={Input} />
+            <ErrorMessage name="email" component="div" className="error text-danger" />
           </div>
           <div>
             <label htmlFor="age">Age</label>
             <Field name="age" type="number" as={Input} />
+            <ErrorMessage name="age" component="div" className="error text-danger" />
           </div>
           <div>
-          <Field as="select" name="gender">
-             <option value="male">Male</option>
-             <option value="female">Female</option>
-             <option value="other">Other</option>
-           </Field>
-           <Field as="select" name="nationality" >
-             <option value="in">India</option>
-             <option value="us">USA</option>
-             <option value="uk">UK</option>
-           </Field>
+            <label htmlFor="date">Travel Date</label>
+            <Field name="date" type="date" as={Input} />
+            <ErrorMessage name="date" component="div" className="error text-danger" />
+          </div>
+          <div>
+            <label htmlFor="gender">Gender</label>
+            <Field as="select" name="gender">
+              <option value="null">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </Field>
+            <ErrorMessage name="gender" component="div" className="error text-danger" />
+          </div>
+          <div>
+            <label htmlFor="nationality">Nationality</label>
+            <Field as="select" name="nationality">
+              <option value="none">Select Country</option>
+              <option value="in">India</option>
+              <option value="us">USA</option>
+              <option value="uk">UK</option>
+            </Field>
+            <ErrorMessage name="nationality" component="div" className="error text-danger"  />
           </div>
           <div>
             <label htmlFor="passport">Passport no.</label>
             <Field name="passport" type="text" as={Input} />
+            <ErrorMessage name="passport" component="div" className="error text-danger" />
           </div>
-          
+
           <div>
             <Button type="primary" htmlType="submit">
-              Register
+              Book Your Ticket
             </Button>
           </div>
         </Form>

@@ -2,10 +2,13 @@ import React, { useContext ,useState} from 'react';
 import UserDetails from './UserDetails';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card ,Button} from 'antd';
-import cartStore from '../stores/CartStore';
+
+
+
 const { Meta } = Card;
 
 const Product = ({item}) => {
+  // console.log(cartStore.addItemToCart);
   const [isOpen,setIsOpen] = useState(false)
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -18,25 +21,18 @@ const Product = ({item}) => {
     setModalVisible(false);
   };
 
-  const store = useContext(cartStore);
-//  console.log(store);
- 
-  const handleAddToCart = () => {
-    store.addToCart({ title, cover, desc });
-  };
- 
   return (
     <>
-    {isOpen && <UserDetails visible={modalVisible} onCancel={handleCancelModal} />}
+    {isOpen && <UserDetails visible={modalVisible} onCancel={handleCancelModal} item={item} />}
     <Card
       cover={<img alt="example" src={item.image}  style={{height:"200px"}}/>}
       actions={[
         <SettingOutlined key="setting" />,
         <Button type='primary' key="add-to-cart" onClick={handleOpenModal}>Add to Cart</Button>
       ]}
+      style={{boxShadow: 'rgba(0, 0, 0, 0.08) 1.95px 1.95px 2.6px'}}
     > 
       <Meta
-        avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
         title={item.title}
         description={item.description}
       />

@@ -1,30 +1,33 @@
-import { observable, action, makeObservable } from 'mobx';
-import { configure } from "mobx"
 
-configure({ useProxies: "never" })
-
+import { makeObservable, observable, action, computed } from "mobx";
 class CartStore {
-  cartItems = [];
-  passengerInfo = {};
+  cart = [];
 
   constructor() {
     makeObservable(this, {
-      cartItems: observable,
-      passengerInfo: observable,
-      addToCart: action,
-      updatePassengerInfo: action,
+      cart: observable,
+      addItemToCart: action,
+      removeItemFromCart: action,
+      totalPrice: computed,
     });
   }
 
-  addToCart(product) {
-    this.cartItems.push(product);
+  addItemToCart(item, passengerInfo) {
+    this.cart.push({ item, passengerInfo });
   }
 
-  updatePassengerInfo(info) {
-    this.passengerInfo = info;
+  removeItemFromCart(cartItem) {
+    console.log(cartItem);
+    const index = this.cart.indexOf(cartItem);
+    if (index !== -1) {
+      this.cart.splice(index, 1);
+    }
+  }
+
+  get totalPrice() {
+    return this.cart.reduce((total, cartItem) => total + 1200, 0);
   }
 }
 
 const cartStore = new CartStore();
-console.log(cartStore)
 export default cartStore;

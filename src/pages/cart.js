@@ -1,11 +1,12 @@
-import React from 'react';
-import ShoppingCart from '../components/ShoppingCart';
+import React from "react";
+import ShoppingCart from "../components/ShoppingCart";
+import Layout from "../components/Layout";
 
 const Cart = () => (
-  <div>
+  <Layout>
     <h1>Shopping Cart</h1>
     <ShoppingCart />
-  </div>
+  </Layout>
 );
 
 export default Cart;
