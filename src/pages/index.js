@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import HomePage from '@/components/HomePage';
+
 import Link from 'next/link';
 const { Header, Content, Footer, Sider } = Layout;
 const items1 = ['1', '2', '3'].map((key) => ({
@@ -24,7 +25,8 @@ const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, i
   };
 });
 const App = () => {
-  const {
+  const [isOpen, setIsOpen] = useState(true)
+    const {
     token: { colorBgContainer },
   } = theme.useToken();
   return (
@@ -86,6 +88,7 @@ const App = () => {
               minHeight: 280,
             }}
           >
+
           <HomePage/>
           </Content>
         </Layout>
