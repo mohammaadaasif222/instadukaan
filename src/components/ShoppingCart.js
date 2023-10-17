@@ -7,6 +7,7 @@ const { Meta } = Card;
 const ShoppingCart = () => {
   const { cart } = cartStore;
 
+  console.log(cart);
   const handleDelete = (item) => {
     cartStore.removeItemFromCart(item)
   };
@@ -42,21 +43,24 @@ const ShoppingCart = () => {
               />
             </Card>
           </Col>
-          <Col span={8} style={{ paddingBottom: "1rem" }} key={index + 1}>
+          {product.passengerInfo.map((passenger, indexuser)=>(
+            <Col span={8} style={{ paddingBottom: "1rem" }} key={index + 1}>
             <Card
                
-              title={product.passengerInfo.username.toUpperCase()}
+              title={passenger.name.toUpperCase()}
               bordered={false}
               style={{boxShadow: 'rgba(0, 0, 0, 0.18) 0px 2px 4px'}}
             >
               <b>Email: </b>
-              <p>{product.passengerInfo.email}</p>
+              <p>{passenger.email}</p>
               <b>Nationality:</b>
-              <p>{product.passengerInfo.nationality.toUpperCase()}</p>
+              <p>{passenger.nationality.toUpperCase()}</p>
               <b>Passport: </b>
-              <p>{product.passengerInfo.passport}</p>
+              <p>{passenger.passport}</p>
             </Card>
           </Col>
+          ))}
+          
         </Row>
          
       ))}

@@ -13,6 +13,7 @@ class CartStore {
   }
 
   addItemToCart(item, passengerInfo) {
+    console.log(passengerInfo);
     this.cart.push({ item, passengerInfo });
   }
 
