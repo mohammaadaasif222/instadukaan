@@ -5,14 +5,12 @@ import { Breadcrumb, Layout, Menu, theme } from "antd";
 
 import Link from "next/link";
 const { Header, Content, Footer, Sider } = Layout;
-const items1 = ["1"].map((key) => ({
-  key,
-  label: `Mohamamad`,
-}));
-
+// const items1 = ["1"].map((key) => ({
+//   key,
+//   label:"Mohammad"
+// }));
 
 const RootLayout = ({ children }) => {
-
   const { cart } = cartStore;
   const items2 = [ShoppingCartOutlined].map((icon, index) => {
     const key = String(index + 1);
@@ -20,14 +18,13 @@ const RootLayout = ({ children }) => {
       key: `sub${key}`,
       icon: React.createElement(icon),
       label: `Cart Items ${cart.length}`,
-      children: ['1'].map((product, j) => {
+      children: ["1"].map((product, j) => {
         return {
           key: "val",
           label: `Total : ₹${cartStore.totalPrice}`,
         };
       }),
     };
-    
   });
 
   const {
@@ -41,13 +38,14 @@ const RootLayout = ({ children }) => {
           alignItems: "center",
         }}
       >
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={items1}
-        />
+        <div className="demo-logo" style={{ width: "7%", height: "4rem", display:'flex' }}>
+          <img
+            src="https://instadukan.com/static/images/Instadukanconcept202006.png"
+            style={{ width: "75%" }}
+          />
+          <span style={{color:"#fff",textTransform: 'uppercase',fontWeight: 'bold', fontSize:'large'}}>Instadukan</span>
+        </div>
+       
       </Header>
       <Content
         style={{
