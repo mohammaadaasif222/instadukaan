@@ -120,16 +120,17 @@ const UserDetails = ({ visible, onCancel, item }) => {
                           className="error text-danger"
                         />
                       </div>
-                      <div>
+                      <div className="form-select">
                         <label htmlFor={`passengers[${index}].gender`}>
                           Gender
                         </label>
                         <Field
+                          
                           as="select"
                           id={`passengers[${index}].gender`}
                           name={`passengers[${index}].gender`}
                         >
-                          <option value="null">Select Gender</option>
+                          <option disabled>Select Gender</option>
                           <option value="male">Male</option>
                           <option value="female">Female</option>
                           <option value="other">Other</option>
@@ -140,7 +141,7 @@ const UserDetails = ({ visible, onCancel, item }) => {
                           className="error text-danger"
                         />
                       </div>
-                      <div>
+                      <div className="form-select">
                         <label htmlFor={`passengers[${index}].nationality`}>
                           Nationality
                         </label>
@@ -149,7 +150,7 @@ const UserDetails = ({ visible, onCancel, item }) => {
                           id={`passengers[${index}].nationality`}
                           name={`passengers[${index}].nationality`}
                         >
-                          <option value="none">Select Country</option>
+                          <option disabled>Select Country</option>
                           <option value="in">India</option>
                           <option value="us">USA</option>
                           <option value="uk">UK</option>

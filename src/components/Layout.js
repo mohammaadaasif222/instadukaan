@@ -20,7 +20,7 @@ const RootLayout = ({ children }) => {
       key: `sub${key}`,
       icon: React.createElement(icon),
       label: `Cart Items ${cart.length}`,
-      children: cart.map((product, j) => {
+      children: ['1'].map((product, j) => {
         return {
           key: "val",
           label: `Total : ₹${cartStore.totalPrice}`,
@@ -103,7 +103,7 @@ const RootLayout = ({ children }) => {
           textAlign: "center",
         }}
       >
-        Ant Design ©2023 Created by Ant UED
+        All Rights Reserved ©2023 Created by Mohamamad
       </Footer>
     </Layout>
   );
