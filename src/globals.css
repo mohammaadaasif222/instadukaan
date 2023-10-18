@@ -1,10 +1,22 @@
-/* @import '~antd/dist/antd.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+*{
+    font-family: 'Source Sans' sans-serif;
+}
 
-/* .ant-card-body{
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-} */
 .error{
     color: red !important;
+}
+.pas-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pas-info p,b {
+    margin: 0;
+    font-size: x-small;
+    letter-spacing: 0.5px;
+}
+.form-select select{
+    width: 100% !important;
+    padding: 7px 0px !important;
 }
