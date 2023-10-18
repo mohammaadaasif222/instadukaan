@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import cartStore from "../stores/CartStore";
+import React from "react";
+import cartStore from "@/stores/CartStore";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 

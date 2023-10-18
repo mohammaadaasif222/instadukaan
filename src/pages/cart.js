@@ -1,12 +1,12 @@
 import React from "react";
-import ShoppingCart from "../components/ShoppingCart";
-import Layout from "../components/Layout";
+import ShoppingCart from "@/components/ShoppingCart";
+import RootLayout from "@/components/Layout";
 
 const Cart = () => (
-  <Layout>
+  <RootLayout>
     <h1>Shopping Cart</h1>
     <ShoppingCart />
-  </Layout>
+  </RootLayout>
 );
 
 export default Cart;

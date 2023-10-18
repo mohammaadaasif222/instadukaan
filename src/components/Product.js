@@ -1,14 +1,13 @@
-import React, { useContext ,useState} from 'react';
+import React, { useState} from 'react';
 import UserDetails from './UserDetails';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { Avatar, Card ,Button} from 'antd';
+import {  SettingOutlined } from '@ant-design/icons';
+import {  Card ,Button} from 'antd';
 
 
 
 const { Meta } = Card;
 
 const Product = ({item}) => {
-  // console.log(cartStore.addItemToCart);
   const [isOpen,setIsOpen] = useState(false)
   const [modalVisible, setModalVisible] = useState(false);
 

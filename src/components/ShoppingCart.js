@@ -1,6 +1,6 @@
 import React from "react";
-import cartStore from "../stores/CartStore";
-import { Card, Row, Col, Button } from "antd";
+import { Card, Row, Col } from "antd";
+import cartStore from "@/stores/CartStore";
 import { DeleteOutlined , UserOutlined} from "@ant-design/icons";
 
 const { Meta } = Card;

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { observer } from 'mobx-react';
-import cartStore from '../stores/CartStore';
+import cartStore from '@/stores/CartStore';
 
 const PassengerInfoModal = () => {
   const [passengerInfo, setPassengerInfo] = useState({});

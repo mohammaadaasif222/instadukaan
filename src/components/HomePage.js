@@ -21,7 +21,7 @@ const HomePage = ({ initialProducts }) => {
     <div>
       <h1>Ferry Products</h1>
       <Row gutter={16}>
-        {products.map((product, index) => (
+        {products?.map((product, index) => (
           <Col md={12} lg={8} key={index} style={{ paddingBottom: "1rem" }}>
             <Product item={product} style={{ marginBottom: "16px" }}></Product>
           </Col>
