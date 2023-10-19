@@ -32,3 +32,6 @@ Access the application in your web browser at http://localhost:3000.
 
 ## Deploy on Netlify
 Live link  - https://mohammad-instaduakn-assignment.netlify.app/
+
+
+Build with help of Google and AI tools
