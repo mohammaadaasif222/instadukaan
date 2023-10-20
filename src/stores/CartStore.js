@@ -1,5 +1,5 @@
-
 import { makeObservable, observable, action, computed } from "mobx";
+
 class CartStore {
   cart = [];
 
@@ -13,16 +13,14 @@ class CartStore {
   }
 
   addItemToCart(item, passengerInfo) {
-    console.log(passengerInfo);
-    this.cart.push({ item, passengerInfo });
+    const uniqueId = new Date().getTime() + Math.floor(Math.random() * 1000);
+    const newItem = { id: uniqueId, item, passengerInfo };
+    this.cart = [...this.cart, newItem]; 
   }
 
-  removeItemFromCart(cartItem) {
-    console.log(cartItem);
-    const index = this.cart.indexOf(cartItem);
-    if (index !== -1) {
-      this.cart.splice(index, 1);
-    }
+  removeItemFromCart(id) {
+    const newCart = this.cart.filter((item) => item.id !== id);
+    this.cart = [...newCart]
   }
 
   get totalPrice() {

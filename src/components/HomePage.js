@@ -11,7 +11,6 @@ const HomePage = ({ initialProducts }) => {
     async function fetchProducts() {
       const response = await fetch(API);
       const newProducts = await response.json();
-      console.log(newProducts);
       setProducts(newProducts.ferryProducts);
     }
     fetchProducts();
